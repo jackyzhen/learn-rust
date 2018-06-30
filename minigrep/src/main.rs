@@ -10,13 +10,13 @@ fn main() {
     let config = match Config::new(&args) {
         Ok(conf) => conf,
         Err(err) => {
-            println!("Problem parsing arguments: {}", err);
+            eprintln!("Problem parsing arguments: {}", err);
             process::exit(1);
         }
     };
 
     if let Err(e) = run(config) {
-        println!("Application error: {}", e);
+        eprintln!("Application error: {}", e);
         process::exit(1);
     }
 }
